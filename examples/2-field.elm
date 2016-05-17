@@ -1,9 +1,10 @@
+module Main (..) where
+
 import Html exposing (Html, Attribute, div, input, text)
 import Html.App as Html
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
 import String
-
 
 
 main =
@@ -35,6 +36,7 @@ model =
 type Msg
   = Change String
 
+
 update : Msg -> Model -> Model
 update msg model =
   case msg of
@@ -48,7 +50,8 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div []
+  div
+    []
     [ input [ placeholder "Text to reverse", onInput Change ] []
     , div [] [ text (String.reverse model.content) ]
     ]

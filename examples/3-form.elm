@@ -1,3 +1,5 @@
+module Main (..) where
+
 import Html exposing (..)
 import Html.App as Html
 import Html.Attributes exposing (..)
@@ -33,9 +35,9 @@ model =
 
 
 type Msg
-    = Name String
-    | Password String
-    | PasswordAgain String
+  = Name String
+  | Password String
+  | PasswordAgain String
 
 
 update : Msg -> Model -> Model
@@ -57,7 +59,8 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div []
+  div
+    []
     [ input [ type' "text", placeholder "Name", onInput Name ] []
     , input [ type' "password", placeholder "Password", onInput Password ] []
     , input [ type' "password", placeholder "Re-enter Password", onInput PasswordAgain ] []
@@ -68,10 +71,10 @@ view model =
 viewValidation : Model -> Html msg
 viewValidation model =
   let
-    (color, message) =
+    ( color, message ) =
       if model.password == model.passwordAgain then
-        ("green", "OK")
+        ( "green", "OK" )
       else
-        ("red", "Passwords do not match!")
+        ( "red", "Passwords do not match!" )
   in
-    div [ style [("color", color)] ] [ text message ]
+    div [ style [ ( "color", color ) ] ] [ text message ]

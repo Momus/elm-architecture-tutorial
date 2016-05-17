@@ -1,7 +1,8 @@
+module Main (..) where
+
 import Html exposing (Html, button, div, text)
 import Html.App as Html
 import Html.Events exposing (onClick)
-
 
 
 main =
@@ -16,7 +17,8 @@ main =
 -- MODEL
 
 
-type alias Model = Int
+type alias Model =
+  Int
 
 
 model : Model
@@ -49,7 +51,8 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div []
+  div
+    []
     [ button [ onClick Decrement ] [ text "-" ]
     , div [] [ text (toString model) ]
     , button [ onClick Increment ] [ text "+" ]
