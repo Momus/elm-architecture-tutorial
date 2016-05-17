@@ -1,27 +1,34 @@
-module Counter (Model, init, Action, update, view) where
+module Counter exposing (Model, init, Msg, update, view)
 
 import Html exposing (..)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 
 
+
 -- MODEL
+
 
 type alias Model = Int
 
 
 init : Int -> Model
-init count = count
+init count =
+  count
+
 
 
 -- UPDATE
 
-type Action = Increment | Decrement
+
+type Msg
+  = Increment
+  | Decrement
 
 
-update : Action -> Model -> Model
-update action model =
-  case action of
+update : Msg -> Model -> Model
+update msg model =
+  case msg of
     Increment ->
       model + 1
 
@@ -29,18 +36,20 @@ update action model =
       model - 1
 
 
+
 -- VIEW
 
-view : Signal.Address Action -> Model -> Html
-view address model =
+
+view : Model -> Html Msg
+view model =
   div []
-    [ button [ onClick address Decrement ] [ text "-" ]
+    [ button [ onClick Decrement ] [ text "-" ]
     , div [ countStyle ] [ text (toString model) ]
-    , button [ onClick address Increment ] [ text "+" ]
+    , button [ onClick Increment ] [ text "+" ]
     ]
 
 
-countStyle : Attribute
+countStyle : Attribute msg
 countStyle =
   style
     [ ("font-size", "20px")
