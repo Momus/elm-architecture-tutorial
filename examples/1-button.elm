@@ -1,4 +1,4 @@
-module Main (..) where
+module Main exposing (..) 
 
 import Html exposing (Html, button, div, text)
 import Html.App as Html
