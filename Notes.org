@@ -106,4 +106,4 @@ elm@0.16.0 /lib/node_modules/elm
           - Records support structural typing: 
           records in Elm can be used in any situation as long as the necessary fields exist.
 * Architecture Tutorial
-*** 
+* 
