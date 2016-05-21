@@ -25,12 +25,13 @@ main =
 type alias Model =
     { topic : String
     , gifUrl : String
+    , lastFetch : Bool
     }
 
 
 init : String -> ( Model, Cmd Msg )
 init topic =
-    ( Model topic "waiting.gif"
+    ( Model topic "waiting.gif" True
     , getRandomGif topic
     )
 
@@ -52,10 +53,10 @@ update msg model =
             ( model, getRandomGif model.topic )
 
         FetchSucceed newUrl ->
-            ( Model model.topic newUrl, Cmd.none )
+            ( Model model.topic newUrl True, Cmd.none )
 
         FetchFail _ ->
-            ( model, Cmd.none )
+            ( { model | lastFetch = False }, Cmd.none )
 
 
 
@@ -69,6 +70,7 @@ view model =
         , button [ onClick MorePlease ] [ text "More Please!" ]
         , br [] []
         , img [ src model.gifUrl ] []
+        , div [ id "fetch_error" ] [ fetchError model ]
         ]
 
 
@@ -97,3 +99,14 @@ getRandomGif topic =
 decodeGifUrl : Json.Decoder String
 decodeGifUrl =
     Json.at [ "data", "image_url" ] Json.string
+
+
+fetchError model =
+  case model.lastFetch of
+    True ->
+      text ""
+    False ->
+      text "There was an error fetching the next gif. Please try again."
+
+       
+  
