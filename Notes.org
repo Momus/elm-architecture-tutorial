@@ -1,49 +1,49 @@
-* Instllation:
+* Instillation:
 *** Fedora: RPM repo: sudo yum install npm
 *** Then npm npm install -g elm
 *** WARNINGS
     npm http GET https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz
-npm http 200 https://registry.npmjs.org/balanced-match/-/balanced-match-0.2.1.tgz
-npm http 200 https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz
-/bin/elm -> /lib/node_modules/elm/binwrappers/elm
-/bin/elm-reactor -> /lib/node_modules/elm/binwrappers/elm-reactor
-/bin/elm-repl -> /lib/node_modules/elm/binwrappers/elm-repl
-/bin/elm-package -> /lib/node_modules/elm/binwrappers/elm-package
-/bin/elm-make -> /lib/node_modules/elm/binwrappers/elm-make
+    npm http 200 https://registry.npmjs.org/balanced-match/-/balanced-match-0.2.1.tgz
+    npm http 200 https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz
+    /bin/elm -> /lib/node_modules/elm/binwrappers/elm
+    /bin/elm-reactor -> /lib/node_modules/elm/binwrappers/elm-reactor
+    /bin/elm-repl -> /lib/node_modules/elm/binwrappers/elm-repl
+    /bin/elm-package -> /lib/node_modules/elm/binwrappers/elm-package
+    /bin/elm-make -> /lib/node_modules/elm/binwrappers/elm-make
 
-> elm@0.16.0 install /lib/node_modules/elm
-> node install.js
-
-Downloading Elm Reactor assets from https://dl.bintray.com/elmlang/elm-platform/0.16.0/elm-reactor-assets.tar.gz
-Downloading Elm binaries from https://dl.bintray.com/elmlang/elm-platform/0.16.0/linux-x64.tar.gz
-Successfully downloaded and processed linux-x64.tar.gz
-Successfully downloaded and processed elm-reactor-assets.tar.gz
-npm WARN unmet dependency /lib/node_modules/block-stream requires inherits@'~2.0.0' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/fstream requires inherits@'~2.0.0' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/fstream-ignore requires inherits@'2' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/fstream-npm requires inherits@'2' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/glob requires inherits@'2' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/npmconf requires inherits@'~2.0.0' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-npm WARN unmet dependency /lib/node_modules/tar requires inherits@'2' but will load
-npm WARN unmet dependency undefined,
-npm WARN unmet dependency which is version undefined
-elm@0.16.0 /lib/node_modules/elm
-├── mkdirp@0.5.1 (minimist@0.0.8)
-├── promise@7.0.4 (asap@2.0.3)
-├── follow-redirects@0.0.7 (stream-consume@0.1.0, debug@2.2.0)
-└── tar@2.2.1 (inherits@2.0.1, block-stream@0.0.8, fstream@1.0.8)
+    > elm@0.16.0 install /lib/node_modules/elm
+    > node install.js
+    
+    Downloading Elm Reactor assets from https://dl.bintray.com/elmlang/elm-platform/0.16.0/elm-reactor-assets.tar.gz
+    Downloading Elm binaries from https://dl.bintray.com/elmlang/elm-platform/0.16.0/linux-x64.tar.gz
+    Successfully downloaded and processed linux-x64.tar.gz
+    Successfully downloaded and processed elm-reactor-assets.tar.gz
+    npm WARN unmet dependency /lib/node_modules/block-stream requires inherits@'~2.0.0' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/fstream requires inherits@'~2.0.0' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/fstream-ignore requires inherits@'2' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/fstream-npm requires inherits@'2' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/glob requires inherits@'2' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/npmconf requires inherits@'~2.0.0' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    npm WARN unmet dependency /lib/node_modules/tar requires inherits@'2' but will load
+    npm WARN unmet dependency undefined,
+    npm WARN unmet dependency which is version undefined
+    elm@0.16.0 /lib/node_modules/elm
+    ├── mkdirp@0.5.1 (minimist@0.0.8)
+    ├── promise@7.0.4 (asap@2.0.3)
+    ├── follow-redirects@0.0.7 (stream-consume@0.1.0, debug@2.2.0)
+    └── tar@2.2.1 (inherits@2.0.1, block-stream@0.0.8, fstream@1.0.8)
 *** [[http://elm-lang.org/get-started][Get Started]]
 ******* elm package install
         This will install the elm-core package and will create an Elm project file: elm-package.json.
@@ -67,43 +67,43 @@ elm@0.16.0 /lib/node_modules/elm
 
 ******* Emacs: 
         Install [[https://github.com/jcollard/elm-mode][elm-mode]]
-
+        
 * [[http://elm-lang.org/guide/core-language][elm complete guide]]
 
-******* Core Language
+*** Values
+    - hello" ++ " world"  ||  "hello world"
+    - > 9 // 2  || 4 : Int
+    - > 9 // 2  || 4.5 : Float
+*** Functions
+    - > isNegative n = n < 0
+    - over9000
+      #+NAME: over9000
+      #+BEGIN_SRC elm-lang
+      over9000 powerLevel = \
+          if powerLevel > 9000 then "OMG!" else "meh"
+      #+END_SRC
+      Note:needs to be indented four spaces to work.
 
-********* Values
-          - hello" ++ " world"  ||  "hello world"
-          - > 9 // 2  || 4 : Int
-          - > 9 // 2  || 4.5 : Float
-********* Functions
-          - > isNegative n = n < 0
-          - over9000
-            #+NAME: over9000
-            #+BEGIN_SRC elm-lang
-            over9000 powerLevel = \
-                if powerLevel > 9000 then "OMG!" else "meh"
-            #+END_SRC
-            Note:needs to be indented four spaces to work.
+*** Lists
+    - Values must all hold the same type
+    - Lots of useful list fucntions are in the  [[http://package.elm-lang.org/packages/elm-lang/core/3.0.0/List][List Library]] 
 
-********* Lists
-          - Values must all hold the same type
-          - Lots of useful list fucntions are in the  [[http://package.elm-lang.org/packages/elm-lang/core/3.0.0/List][List Library]] 
+*** Tuples
+    - Can hold a fixed number of values
+    - Each value can have any type
+    - Useful for simple data types, for more complex, use records
+*** Records
+    - set of key-value pairs. "Object like"
+    - create records using curly braces and access fields using a dot
+    - Elm also has a version of record access that works like a function.
+    - starting dot, means access field with following name, 
+      - so .name accesses the name field of the record.
+    - You cannot ask for a field that does not exist.
+    - No field will ever be undefined or null.
+    - You cannot create recursive records with a this or self keyword.
+    - Records support structural typing: 
+    records in Elm can be used in any situation as long as the necessary fields exist.
+* Elm Architecture
+*** User Input
+***** Buttons
 
-********* Tuples
-          - Can hold a fixed number of values
-          - Each value can have any type
-          - Useful for symple data types, for more complex, use records
-********* Records
-          - set of key-value pairs. "Object like"
-          - create records using curly braces and access fields using a dot
-          - Elm also has a version of record access that works like a function.
-          - starting dot, means access field with following name, 
-            - so .name accesses the name field of the record.
-          - You cannot ask for a field that does not exist.
-          - No field will ever be undefined or null.
-          - You cannot create recursive records with a this or self keyword.
-          - Records support structural typing: 
-          records in Elm can be used in any situation as long as the necessary fields exist.
-* Architecture Tutorial
-* 
