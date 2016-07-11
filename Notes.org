@@ -10,10 +10,9 @@
     /bin/elm-repl -> /lib/node_modules/elm/binwrappers/elm-repl
     /bin/elm-package -> /lib/node_modules/elm/binwrappers/elm-package
     /bin/elm-make -> /lib/node_modules/elm/binwrappers/elm-make
+    elm@0.16.0 install /lib/node_modules/elm
+    node install.js
 
-    > elm@0.16.0 install /lib/node_modules/elm
-    > node install.js
-    
     Downloading Elm Reactor assets from https://dl.bintray.com/elmlang/elm-platform/0.16.0/elm-reactor-assets.tar.gz
     Downloading Elm binaries from https://dl.bintray.com/elmlang/elm-platform/0.16.0/linux-x64.tar.gz
     Successfully downloaded and processed linux-x64.tar.gz
@@ -69,7 +68,6 @@
         Install [[https://github.com/jcollard/elm-mode][elm-mode]]
         
 * [[http://elm-lang.org/guide/core-language][elm complete guide]]
-
 *** Values
     - hello" ++ " world"  ||  "hello world"
     - > 9 // 2  || 4 : Int
@@ -84,14 +82,27 @@
       #+END_SRC
       Note:needs to be indented four spaces to work.
 
+
+*** Values
+    - hello" ++ " world"  ||  "hello world"
+    - > 9 // 2  || 4 : Int
+    - > 9 // 2  || 4.5 : Float
+*** Functions
+    - > isNegative n = n < 0
+    - over9000
+      #+NAME: over9000
+      #+BEGIN_SRC elm-lang
+      over9000 powerLevel = \
+          if powerLevel > 9000 then "OMG!" else "meh"
+      #+END_SRC
+      Note:needs to be indented four spaces to work.
 *** Lists
     - Values must all hold the same type
     - Lots of useful list fucntions are in the  [[http://package.elm-lang.org/packages/elm-lang/core/3.0.0/List][List Library]] 
-
 *** Tuples
     - Can hold a fixed number of values
     - Each value can have any type
-    - Useful for simple data types, for more complex, use records
+    - Useful for symple data types, for more complex, use records
 *** Records
     - set of key-value pairs. "Object like"
     - create records using curly braces and access fields using a dot
@@ -106,4 +117,3 @@
 * Elm Architecture
 *** User Input
 ***** Buttons
-
