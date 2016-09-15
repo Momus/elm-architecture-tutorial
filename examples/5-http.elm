@@ -3,10 +3,11 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.App as Html
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
+import Html.Events as Events exposing (..)
 import Http
 import Json.Decode as Json
 import Task
+import VirtualDom exposing (Node(..))
 
 
 main =
@@ -28,6 +29,16 @@ type alias Model =
     }
 
 
+topics : List String
+topics =
+    [ "cats"
+    , "dogs"
+    , "transportation"
+    , "nature"
+    , "music"
+    ]
+
+
 init : String -> ( Model, Cmd Msg )
 init topic =
     ( Model topic "waiting.gif"
@@ -41,6 +52,7 @@ init topic =
 
 type Msg
     = MorePlease
+    | NewTopic String
     | FetchSucceed String
     | FetchFail Http.Error
 
@@ -50,6 +62,9 @@ update msg model =
     case msg of
         MorePlease ->
             ( model, getRandomGif model.topic )
+
+        NewTopic newTopic ->
+            ( { model | topic = newTopic }, getRandomGif newTopic )
 
         FetchSucceed newUrl ->
             ( Model model.topic newUrl, Cmd.none )
@@ -64,11 +79,14 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ h2 [] [ text model.topic ]
-        , button [ onClick MorePlease ] [ text "More Please!" ]
+    div [ Html.Attributes.class "container" ]
+        [ h3 [] [ text "Chose a gif!" ]
+        , Html.br [] []
+        , topicDropDown
         , br [] []
         , img [ src model.gifUrl ] []
+        , br [] []
+        , button [ onClick MorePlease ] [ text "More Please!" ]
         ]
 
 
@@ -97,3 +115,32 @@ getRandomGif topic =
 decodeGifUrl : Json.Decoder String
 decodeGifUrl =
     Json.at [ "data", "image_url" ] Json.string
+
+
+
+-- VIEW Funcions
+
+
+topicDropDown : Html.Html Msg
+topicDropDown =
+    Html.select [ onChange NewTopic ] (dropDownItems topics)
+
+
+dropDownItems : List String -> List (Html a)
+dropDownItems choices =
+    let
+        createEntry item =
+            Html.option [ Html.Attributes.value item ]
+                [ Html.text item ]
+    in
+        List.map createEntry choices
+
+
+{-| from https://github.com/elm-lang/html/issues/23
+   I don't really understand how it works, but it does.
+-}
+onChange : (String -> msg) -> Attribute msg
+onChange handler =
+    Events.on "change"
+        <| Json.map handler
+        <| Json.at [ "target", "value" ] Json.string

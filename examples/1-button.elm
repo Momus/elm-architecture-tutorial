@@ -42,12 +42,13 @@ update msg model =
         Increment ->
             model + 1
 
-
         Decrement ->
             model - 1
 
         Reset ->
             0
+
+
 
 -- VIEW
 
@@ -55,7 +56,6 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-
         [ button [ onClick Increment ] [ text "+" ]
         , div []
             [ div [] [ text (toString model) ]

@@ -20,7 +20,6 @@ main =
 
 
 type alias Model =
-
     { dieOne : Int
     , dieTwo : Int
     }
@@ -31,13 +30,13 @@ init =
     ( Model 1 1, Cmd.none )
 
 
+
 -- UPDATE
 
 
 type Msg
     = Roll
     | NewFace ( Int, Int )
-
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -53,6 +52,7 @@ update msg model =
             ( Model (fst newFace) (snd newFace)
             , Cmd.none
             )
+
 
 
 -- SUBSCRIPTIONS
